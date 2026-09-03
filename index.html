@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+    }
+
+    .search {
+      width: min(600px, 90%);
+      padding: 16px 20px;
+      border: 1px solid #444;
+      border-radius: 30px;
+      outline: none;
+      background: #222;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .search:focus {
+      border-color: #888;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="searchForm">
+    <input
+      id="search"
+      class="search"
+      type="search"
+      placeholder="Search..."
+      autocomplete="off"
+      autofocus
+    >
+  </form>
+
+  <script>
+    document.getElementById("searchForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const query = document.getElementById("search").value.trim();
+
+      if (query) {
+        window.location.href =
+          "https://duckduckgo.com/?q=" + encodeURIComponent(query);
+      }
+    });
+  </script>
+</body>
+</html>
